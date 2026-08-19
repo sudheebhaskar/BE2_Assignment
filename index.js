@@ -136,18 +136,18 @@ async function getCarByColor(colorName){
 
 
 //update the price
-async function updatePriceOfCar(carID, dataToUpdate){
+
+async function updatePriceOfCar(){
   try{
-  const priceUpdated = await Car.findByIdAndUpdate(carID, dataToUpdate, {new: true})
-  console.log(priceUpdated)
+    const priceUpdated = await Car.findOneAndUpdate({model: "Corolla"},{price: 2300000},{new: true}
+    )
+    console.log(priceUpdated)
   } catch(error){
     console.log("Error while updating data", error)
   }
 }
 
-//updatePriceOfCar("66d852f067475a6410b98542", {price: 2300000});
-
-
+//updatePriceOfCar()
 
 //used car
 async function conditionUsedCar(model, dataToUpdate){
